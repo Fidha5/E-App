@@ -1,15 +1,168 @@
 {
-    "products": [
-      { "id": 1, "name": "Apple iPhone 16 Pro Max", "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80", "price":105999 },
-      { "id": 2, "name": "Redmi Note 14 Pro+ 5G","image":"https://www.91-img.com/pictures/154781-v4-xiaomi-redmi-note-14-pro-plus-mobile-phone-large-1.jpg?tr=q-80", "price": 29999 },
-      { "id": 3, "name": "iQOO 13 5G", "image": "https://www.91-img.com/pictures/154839-v8-iqoo-13-5g-mobile-phone-large-1.jpg?tr=q-80", "price": 39999 },
-      { "id": 4, "name": "OnePlus 13", "image": "https://www.91-img.com/pictures/154779-v4-oneplus-13-mobile-phone-large-1.jpg?tr=q-80", "price": 49999 },
-      { "id": 5, "name": "vivo X200 Pro", "image": "https://www.91-img.com/pictures/165354-v3-vivo-x200-pro-mobile-phone-large-1.jpg?tr=q-80", "price": 59999 },
-      { "id": 6, "name": "OPPO Find X8 Pro", "image": "https://www.91-img.com/pictures/165498-v3-oppo-find-x8-pro-mobile-phone-large-1.jpg?tr=q-80", "price": 69999 },
-      { "id": 7, "name": "Samsung Galaxy S24 FE", "image": "https://www.91-img.com/pictures/156667-v4-samsung-galaxy-s24-fe-mobile-phone-large-1.jpg?tr=q-80", "price": 79999 },
-      { "id": 8, "name": "POCO F6 ", "image": "https://www.91-img.com/pictures/153078-v3-poco-f6-mobile-phone-large-1.jpg?tr=q-80", "price": 29999 },
-      { "id": 9, "name": "Infinix GT 20 Pro 5G", "image": "https://www.91-img.com/pictures/161747-v6-infinix-gt-20-pro-5g-mobile-phone-large-1.jpg?tr=q-80", "price": 35000 },
-      { "id": 10, "name": "Moto G45 5G", "image": "https://www.91-img.com/pictures/164080-v2-moto-g45-5g-mobile-phone-large-1.jpg?tr=q-80", "price": 54000 }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "name": "Apple iPhone 16 Pro Max",
+      "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/61giwQtR1qL._SL1500_.jpg",
+      "price": 105999,
+      "specifications": [
+        "iPhone 16 Pro Max 256 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Redmi Note 14 5G",
+      "image": "https://www.91-img.com/pictures/154781-v4-xiaomi-redmi-note-14-pro-plus-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/71+QToFrHXL._SL1500_.jpg",
+      "price": 21999,
+      "specifications": [
+        "Redmi Note 14 5G (Titan Black, 8GB RAM 256GB Storage) | Global Debut MTK Dimensity 7025 Ultra | 2100 nits Segment Brightest 120Hz AMOLED | 50MP Sony LYT 600 OIS+EIS Triple Camera"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "iQOO 13 5G",
+      "image": "https://www.91-img.com/pictures/154839-v8-iqoo-13-5g-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/51jAxBrJCtL._SX569_.jpg",
+      "price": 39999,
+      "specifications": [
+        "iQOO 13 5G (Legend, 12GB RAM, 256GB Storage) | Pro-Level Hasselblad Camera System: -Primary 50MP Sony's LYT-808 with OIS - 64 MP 3X Periscope Telephoto for studio-level portraits - 48 MP Ultra-wide 114° Fov"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "OnePlus 12",
+      "image": "https://www.91-img.com/pictures/154779-v4-oneplus-13-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/41+WyW0KOgL._SY300_SX300_.jpg",
+      "price": 58999,
+      "specifications": [
+        "OnePlus 12 (Flowy Emerald, 12GB RAM, 256GB Storage)"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "vivo X200 Pro",
+      "image": "https://www.91-img.com/pictures/165354-v3-vivo-x200-pro-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/41MSicX6jhL._SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 59999,
+      "specifications": [
+        "Vivo X200 Pro 5G (Titanium Grey, 16GB RAM, 512GB Storage)  | LPDDR5X | UFS 4.0|Battery: 6000 mAh Battery | Semi-Solid State Battery|Fast Charging: 90W Flash Charge"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "OPPO Find X8 Pro",
+      "image": "https://www.91-img.com/pictures/165498-v3-oppo-find-x8-pro-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://www.91-img.com/pictures/165498-v3-oppo-find-x8-pro-mobile-phone-large-3.jpg",
+      "price": 69999,
+      "specifications": [
+        "OPPO Find X8 Pro | Octa core (3.63 GHz, Single Core + 3.3 GHz, Tri core + 2.4 GHz, Quad core)MediaTek Dimensity 940016 GB RAM | Battery5910 mAhSuper VOOC ChargingUSB Type-C Port"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Samsung Galaxy S24 FE",
+      "image": "https://www.91-img.com/pictures/156667-v4-samsung-galaxy-s24-fe-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/717gvwQRw7L._SX569_.jpg",
+      "price": 79999,
+      "specifications": [
+        "Samsung Galaxy S24 FE 5G AI Smartphone (Blue, 8GB RAM, 256GB Storage) | Large 6.7 FHD+ Dynamic AMOLED 2X display for an immersive viewing experience"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "POCO F6 ",
+      "image": "https://www.91-img.com/pictures/153078-v3-poco-f6-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/71SDc7WE2DL._SL1500_.jpg",
+      "price": 29999,
+      "specifications": [
+        "12 GB RAM | 256 GB ROM 16.94 cm (6.67 inch) Display 50MP (OIS) + 8MP | 20MP Front Camera | 5000 mAh Battery 8s Gen3 Processor | 1.5K 120Hz AMOLED Display with Dolby Vision | 68 billion+ colors |  2400 Nits Peak Brightness | In-Display Fingerprint"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Infinix GT 20 Pro 5G",
+      "image": "https://www.91-img.com/pictures/161747-v6-infinix-gt-20-pro-5g-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/51Vtj3ZX6iL._SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 35000,
+      "specifications": [
+        "Infinix GT 20 Pro 5G (Mecha Blue, 8GB RAM, 256GB Storage) | Up to 16GB Extented RAM | 6.78 AMOLED Display | 108MP+2MP+2MP | 32MP Front Camera | MediaTek Dimensity 8200 Processor | 45W Fast Charging"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Moto G45 5G",
+      "image": "https://www.91-img.com/pictures/164080-v2-moto-g45-5g-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/81dl4dQY3BL._SL1500_.jpg",
+      "price": 54000,
+      "specifications": [
+        "Motorola G45 5G (Brilliant Blue, 8GB RAM, 128GB Storage) |  a powerful smartphone designed for those who demand speed | efficiency | and superior performance."
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "john_doe",
+      "password": "password123"
+    },
+    {
+      "id": "6a80",
+      "username": "fidha",
+      "password": "pass123456"
+    },
+    {
+      "id": "596d",
+      "username": "sameeha",
+      "password": "456789"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "name": "Apple iPhone 16 Pro Max",
+      "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/61giwQtR1qL._SL1500_.jpg",
+      "price": 105999,
+      "specifications": [
+        "iPhone 16 Pro Max 256 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium"
+      ],
+      "user": "sameeha",
+      "quantity": 1
+    },
+    {
+      "id": "1",
+      "name": "Apple iPhone 16 Pro Max",
+      "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/61giwQtR1qL._SL1500_.jpg",
+      "price": 105999,
+      "specifications": [
+        "iPhone 16 Pro Max 256 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium"
+      ],
+      "user": "fidha"
+    },
+    {
+      "id": "3",
+      "name": "iQOO 13 5G",
+      "image": "https://www.91-img.com/pictures/154839-v8-iqoo-13-5g-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/51jAxBrJCtL._SX569_.jpg",
+      "price": 39999,
+      "specifications": [
+        "iQOO 13 5G (Legend, 12GB RAM, 256GB Storage) | Pro-Level Hasselblad Camera System: -Primary 50MP Sony's LYT-808 with OIS - 64 MP 3X Periscope Telephoto for studio-level portraits - 48 MP Ultra-wide 114° Fov"
+      ],
+      "user": "fidha"
+    },
+    {
+      "id": "2",
+      "name": "Redmi Note 14 5G",
+      "image": "https://www.91-img.com/pictures/154781-v4-xiaomi-redmi-note-14-pro-plus-mobile-phone-large-1.jpg?tr=q-80",
+      "detailsImage": "https://m.media-amazon.com/images/I/71+QToFrHXL._SL1500_.jpg",
+      "price": 21999,
+      "specifications": [
+        "Redmi Note 14 5G (Titan Black, 8GB RAM 256GB Storage) | Global Debut MTK Dimensity 7025 Ultra | 2100 nits Segment Brightest 120Hz AMOLED | 50MP Sony LYT 600 OIS+EIS Triple Camera"
+      ],
+      "user": "sameeha"
+    }
+  ]
 }
-  

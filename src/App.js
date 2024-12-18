@@ -1,16 +1,22 @@
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"
-import Home from "./user/pages/Home"
-
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { UserProvider } from "./context/UserContext";
+import { CartProvider } from "./context/CartContext";
+import UserRouter from './user/UserRouter';
+import AdminRouter from './admin/AdminRouter';
 function App() {
   return (
-    <div className="App">
-        <Navbar/>
-         <Home/>
-        <Footer/>
-    </div>
+    <UserProvider>
+      <CartProvider>
+        <Router>
+                <Routes>
+                  <Route path='/*' element={ <UserRouter/> } />
+                  <Route path="/admin*" element = { <AdminRouter/> } />
+                </Routes>
+            </Router>
+            </CartProvider>
+          </UserProvider>
+    
   );
 }
 
