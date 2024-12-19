@@ -83,7 +83,7 @@ const Checkout = () => {
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-16 h-16 object-cover"
+                      className="w-20 h-20 object-contain"
                     />
                     <div>
                       <h4 className="font-semibold">{product.name}</h4>

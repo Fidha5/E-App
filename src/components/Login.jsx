@@ -35,14 +35,14 @@ const Login =() =>{
     }
     
     return(
-        <div className="login flex flex-col items-center justify-center h-screen bg-blue-400">
-            <div className="user flex flex-col items-center p-6 bg-slate-100 border shadow-lg rounded-xl w-[300px] ">
-                <h1 className="text-4xl text-center font-medium p-5 text-blue-400">LOGIN</h1>
+        <div className="login flex flex-col items-center justify-center h-screen bg-slate-50">
+            <div className="user flex flex-col items-center p-6 bg-gray-200 border shadow-lg rounded-xl w-[300px] ">
+                <h1 className="text-4xl text-center font-medium p-5 text-black">LOGIN</h1>
                 {error && <p className='text-red-500 text-sm mb-4'>{error}</p>}
                 <div className="pass flex flex-col items-center pt-6" >
-                    <input type="text" placeholder="Username" className="bg-slate-200 rounded-2xl  w-[250px] pl-2  outline-none border-blue-400 mt-5 py-2 border-b-2" value={username} onChange={(e)=>setUsername(e.target.value)}/>
-                    <input type="password" placeholder="Password" className="bg-slate-200 rounded-2xl pl-2 w-[250px] outline-none border-blue-400 border-b-2 py-2 mt-2"value={password} onChange={(e)=>setPassword(e.target.value)} />
-                    <button className='bg-gray-300 mt- rounded-2xl p-2 px-5  mt-5 hover:bg-blue-300 outline-none border-blue-400 border-b-2 text-blue-500 font-bold' onClick={HandleLogin}>LOGIN</button>
+                    <input type="text" placeholder="Username" className=" rounded-2xl  w-[250px] pl-2  outline-none border-black mt-5 py-2 border-b-2" value={username} onChange={(e)=>setUsername(e.target.value)}/>
+                    <input type="password" placeholder="Password" className=" rounded-2xl pl-2 w-[250px] outline-none border-black border-b-2 py-2 mt-2"value={password} onChange={(e)=>setPassword(e.target.value)} />
+                    <button className=' mt- rounded-2xl p-2 px-5  mt-5 hover:bg-gray-300 outline-none border-black border-b-2 text--500 font-bold' onClick={HandleLogin}>LOGIN</button>
                     <h1 className='mt-10 p-6 text-center font-extralight'>Don't have an account?<NavLink to='/SignUp' className='text-blue-500 hover:text-black'>
                     SignUp</NavLink></h1>
                 </div>

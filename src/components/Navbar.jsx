@@ -1,4 +1,4 @@
-import React,{ useContext } from 'react'
+import React,{ useContext,useState } from 'react'
 import { NavLink,useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext';
 import { useCart } from '../context/CartContext';
@@ -7,6 +7,7 @@ function Navbar() {
   const { user, setUser } = useContext(UserContext)
   const { cart } = useCart();
   const navigate = useNavigate()
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     setUser(null);
@@ -14,8 +15,8 @@ function Navbar() {
     navigate("/");
   }
   return (
-    <div className='flex w-screen p-4 shadow-lg bg-slate-200 h-auto md:h-[60px] items-center justify-between'>
-       <div className='flex'>
+    <div className='flex w-full p-4 shadow-lg bg-slate-200 h-auto md:h-[60px] items-center justify-between top-0 left-0'>
+       <div className='flex items-center'>
                 <img src='	https://cdn-icons-png.flaticon.com/512/3737/3737151.png' alt='logo' className='w-10 h-10 '/>
                 <p className='font-bold text-blue-300 text-lg'>MOB-BUDDY</p>
        </div>
@@ -27,13 +28,13 @@ function Navbar() {
             </NavLink>
           <NavLink to ={'/order'}><li>Orders</li></NavLink>
         </ul>
-        <div className='w-full md:w-auto mt-2 md:mt-0'>
+        <div className=' w-[600px] md:w-auto mt-2 md:mt-0'>
              <input type='text' placeholder='Search here...' className='w-full md:w-[300px] lg:w-[400px] p-2 rounded-lg' />
         </div>
         <ul className='flex items-center space-x-4 mt-2 md:mt-0'>
           {user ?(
             <>
-          <li className=' font-medium text-gray-500'>{user}</li>
+          <li className=' font-medium text-black'>{user}</li>
           <button className='bg-slate-300 rounded-xl p-1 hover:bg-slate-500 font-medium'onClick={handleLogout} >
             LogOut</button>
           </>
@@ -53,8 +54,15 @@ function Navbar() {
           )}
 
         </ul>
-        <div className="md:hidden flex items-center mt-2">
-          <button className="p-2 m-2"> ☰ </button>
+        <div className="md:hidden flex items-center mt-2" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="p-2 m-2" > ☰ </button>
+          {menuOpen && (
+        <div className='absolute top-16 left-0 w-full bg-slate-200 p-4 flex flex-col space-y-4 md:hidden'>
+          <NavLink to='/' onClick={() => setMenuOpen(false)}>Home</NavLink>
+          <NavLink to='/cart' onClick={() => setMenuOpen(false)}>Cart ({cart?.length || 0})</NavLink>
+          <NavLink to='/order' onClick={() => setMenuOpen(false)}>Orders</NavLink>
+        </div>
+      )}
         </div>
     </div>
   )

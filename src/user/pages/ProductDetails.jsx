@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../../context/CartContext'
+import { useUser } from '../../context/UserContext';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
+  const { user } = useUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:5000/products/${id}`)
@@ -20,6 +23,16 @@ const ProductDetails = () => {
   if (!product) {
     return <p>Loading product details...</p>;
   }
+
+  const handleAddToCart = () => {
+    if (!user) {
+      alert('Please log in to add products to your cart.');
+      navigate('/login');
+      return;
+    }
+    addToCart(product);
+    alert(`${product.name} has been added to your cart.`);
+  };
 
   const shortenSpecifications = (specifications) => {
     return specifications.slice(0, 3);
@@ -60,8 +73,8 @@ const ProductDetails = () => {
               <p className="text-gray-500">No specifications available.</p>
             )}
             <button
-              onClick={()=>addToCart(product)}
-              className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+              onClick={handleAddToCart}
+              className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-gray-400 transition"
             >
               Add to Cart
             </button>

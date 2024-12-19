@@ -84,7 +84,7 @@ const ManageUsers = () => {
                 </div>
                 <button
                     onClick={handleUpdateUser}
-                    className="mt-4 bg-blue-600 text-white p-2 rounded-md"
+                    className="mt-4 bg-blue-600 text-black p-2 rounded-md hover:bg-slate-400"
                 >
                     Update User
                 </button>

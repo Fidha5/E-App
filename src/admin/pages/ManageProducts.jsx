@@ -79,7 +79,7 @@ const ManageProducts = () => {
                 </div>
                 <button
                     onClick={handleAddProduct}
-                    className="mt-4 bg-green-600 text-white p-2 rounded-md"
+                    className="mt-4 bg-blue-600 text-black p-2 rounded-md hover:bg-slate-400"
                 >
                     Add Product
                 </button>
@@ -108,7 +108,7 @@ const ManageProducts = () => {
                                 <td className="px-4 py-2">
                                     <button
                                         onClick={() => handleEditProduct(product.id)}
-                                        className="bg-blue-600 text-white p-2 rounded-md mr-2"
+                                        className="bg-blue-600 text-white p-3 rounded-md mr-2"
                                     >
                                         Edit
                                     </button>
