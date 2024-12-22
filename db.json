@@ -2,9 +2,9 @@
   "products": [
     {
       "id": "1",
-      "name": "Apple iPhone 16 Pro Max",
+      "name": "iPhone 16 Pro Max",
       "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/61giwQtR1qL._SL1500_.jpg",
+      "detailsImage": "https://www.istore.co.za/media/catalog/product/cache/4ebc814e413626645aa42e369230a31f/i/p/iphone_16_pro_max_desert_titanium_pdp_image_position_1__gben_2.png",
       "price": 105999,
       "specifications": [
         "iPhone 16 Pro Max 256 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium"
@@ -32,19 +32,19 @@
     },
     {
       "id": "4",
-      "name": "OnePlus 12",
+      "name": "OnePlus 12 5G",
       "image": "https://www.91-img.com/pictures/154779-v4-oneplus-13-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/41+WyW0KOgL._SY300_SX300_.jpg",
+      "detailsImage": "https://rukminim2.flixcart.com/image/720/864/xif0q/mobile/s/r/r/12-5g-op12-5g-oneplus-original-imagxgt7uwerszh8.jpeg?q=60&crop=false",
       "price": 58999,
       "specifications": [
-        "OnePlus 12 (Flowy Emerald, 12GB RAM, 256GB Storage)"
+        "OnePlus 12 (Flowy Emerald, 12GB RAM, 256GB Storage) |  flagship smartphone that combines cutting-edge technology with sleek design | It features a 6.82-inch LTPO AMOLED display with a resolution of 3168x1440 pixels, offering vibrant visuals and a dynamic refresh rate ranging from 1 to 120 Hz for smooth scrolling and responsiveness. "
       ]
     },
     {
       "id": "5",
-      "name": "vivo X200 Pro",
+      "name": "Vivo X200 Pro",
       "image": "https://www.91-img.com/pictures/165354-v3-vivo-x200-pro-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/41MSicX6jhL._SX300_SY300_QL70_FMwebp_.jpg",
+      "detailsImage": "https://m.media-amazon.com/images/I/71chuQByj0L._AC_UF1000,1000_QL80_.jpg",
       "price": 59999,
       "specifications": [
         "Vivo X200 Pro 5G (Titanium Grey, 16GB RAM, 512GB Storage)  | LPDDR5X | UFS 4.0|Battery: 6000 mAh Battery | Semi-Solid State Battery|Fast Charging: 90W Flash Charge"
@@ -74,7 +74,7 @@
       "id": "8",
       "name": "POCO F6 ",
       "image": "https://www.91-img.com/pictures/153078-v3-poco-f6-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/71SDc7WE2DL._SL1500_.jpg",
+      "detailsImage": "https://mobitez.in/wp-content/uploads/2024/05/Poco-F6-5G-Black.webp",
       "price": 29999,
       "specifications": [
         "12 GB RAM | 256 GB ROM 16.94 cm (6.67 inch) Display 50MP (OIS) + 8MP | 20MP Front Camera | 5000 mAh Battery 8s Gen3 Processor | 1.5K 120Hz AMOLED Display with Dolby Vision | 68 billion+ colors |  2400 Nits Peak Brightness | In-Display Fingerprint"
@@ -84,7 +84,7 @@
       "id": "9",
       "name": "Infinix GT 20 Pro 5G",
       "image": "https://www.91-img.com/pictures/161747-v6-infinix-gt-20-pro-5g-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/51Vtj3ZX6iL._SX300_SY300_QL70_FMwebp_.jpg",
+      "detailsImage": "https://m.media-amazon.com/images/I/61QXkKrARpL.jpg",
       "price": 35000,
       "specifications": [
         "Infinix GT 20 Pro 5G (Mecha Blue, 8GB RAM, 256GB Storage) | Up to 16GB Extented RAM | 6.78 AMOLED Display | 108MP+2MP+2MP | 32MP Front Camera | MediaTek Dimensity 8200 Processor | 45W Fast Charging"
@@ -104,71 +104,137 @@
   "users": [
     {
       "id": "1",
-      "username": "john_doe",
-      "password": "password123"
+      "name": "john_doe",
+      "email": "john_doe@gmail.com",
+      "password": "password123",
+      "role": "admin"
     },
     {
-      "id": "6a80",
-      "username": "fidha",
-      "password": "pass123456"
+      "id": "f7cf",
+      "name": "Fathima Fidha C P",
+      "email": "fidha@gmail.com",
+      "password": "123456",
+      "role": "user",
+      "cart": [
+        {
+          "id": "3",
+          "name": "iQOO 13 5G",
+          "image": "https://www.91-img.com/pictures/154839-v8-iqoo-13-5g-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://m.media-amazon.com/images/I/51jAxBrJCtL._SX569_.jpg",
+          "price": 39999,
+          "specifications": [
+            "iQOO 13 5G (Legend, 12GB RAM, 256GB Storage) | Pro-Level Hasselblad Camera System: -Primary 50MP Sony's LYT-808 with OIS - 64 MP 3X Periscope Telephoto for studio-level portraits - 48 MP Ultra-wide 114° Fov"
+          ],
+          "qty": 1
+        }
+      ]
     },
     {
-      "id": "596d",
-      "username": "sameeha",
-      "password": "456789"
+      "id": "2e59",
+      "name": "Najiya",
+      "email": "najiya@gmail.com",
+      "password": "456789",
+      "role": "user"
     },
     {
-      "id": "f415",
-      "username": "najiya",
-      "password": "456123"
+      "id": "087c",
+      "name": "Lamiya",
+      "email": "lamiya@gmail.com",
+      "password": "789456",
+      "role": "user",
+      "cart": [
+        {
+          "id": "2",
+          "name": "Redmi Note 14 5G",
+          "image": "https://www.91-img.com/pictures/154781-v4-xiaomi-redmi-note-14-pro-plus-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://m.media-amazon.com/images/I/71+QToFrHXL._SL1500_.jpg",
+          "price": 21999,
+          "specifications": [
+            "Redmi Note 14 5G (Titan Black, 8GB RAM 256GB Storage) | Global Debut MTK Dimensity 7025 Ultra | 2100 nits Segment Brightest 120Hz AMOLED | 50MP Sony LYT 600 OIS+EIS Triple Camera"
+          ],
+          "qty": 1
+        },
+        {
+          "id": "3",
+          "name": "iQOO 13 5G",
+          "image": "https://www.91-img.com/pictures/154839-v8-iqoo-13-5g-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://m.media-amazon.com/images/I/51jAxBrJCtL._SX569_.jpg",
+          "price": 39999,
+          "specifications": [
+            "iQOO 13 5G (Legend, 12GB RAM, 256GB Storage) | Pro-Level Hasselblad Camera System: -Primary 50MP Sony's LYT-808 with OIS - 64 MP 3X Periscope Telephoto for studio-level portraits - 48 MP Ultra-wide 114° Fov"
+          ],
+          "qty": 1
+        }
+      ]
     }
   ],
-  "cart": [
+  "order": [
     {
-      "id": "2",
-      "name": "Redmi Note 14 5G",
-      "image": "https://www.91-img.com/pictures/154781-v4-xiaomi-redmi-note-14-pro-plus-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/71+QToFrHXL._SL1500_.jpg",
-      "price": 21999,
-      "specifications": [
-        "Redmi Note 14 5G (Titan Black, 8GB RAM 256GB Storage) | Global Debut MTK Dimensity 7025 Ultra | 2100 nits Segment Brightest 120Hz AMOLED | 50MP Sony LYT 600 OIS+EIS Triple Camera"
+      "id": "5338",
+      "userId": "f7cf",
+      "items": [
+        {
+          "id": "1",
+          "name": "iPhone 16 Pro Max",
+          "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://www.istore.co.za/media/catalog/product/cache/4ebc814e413626645aa42e369230a31f/i/p/iphone_16_pro_max_desert_titanium_pdp_image_position_1__gben_2.png",
+          "price": 105999,
+          "specifications": [
+            "iPhone 16 Pro Max 256 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium"
+          ],
+          "qty": 1
+        }
       ],
-      "user": "sameeha"
+      "total": 105999,
+      "paymentMethod": "Credit Card",
+      "address": {
+        "street": "Kanikullangaracheenikal",
+        "city": "Malapuram",
+        "state": "Kerala",
+        "zip": "",
+        "country": "India",
+        "pin": "673314"
+      },
+      "date": "2024-12-22T15:19:38.693Z"
     },
     {
-      "id": "5",
-      "name": "vivo X200 Pro",
-      "image": "https://www.91-img.com/pictures/165354-v3-vivo-x200-pro-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/41MSicX6jhL._SX300_SY300_QL70_FMwebp_.jpg",
-      "price": 59999,
-      "specifications": [
-        "Vivo X200 Pro 5G (Titanium Grey, 16GB RAM, 512GB Storage)  | LPDDR5X | UFS 4.0|Battery: 6000 mAh Battery | Semi-Solid State Battery|Fast Charging: 90W Flash Charge"
+      "id": "7d90",
+      "userId": "f7cf",
+      "items": [
+        {
+          "id": "1",
+          "name": "iPhone 16 Pro Max",
+          "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://www.istore.co.za/media/catalog/product/cache/4ebc814e413626645aa42e369230a31f/i/p/iphone_16_pro_max_desert_titanium_pdp_image_position_1__gben_2.png",
+          "price": 105999,
+          "specifications": [
+            "iPhone 16 Pro Max 256 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium"
+          ],
+          "qty": 1
+        },
+        {
+          "id": "4",
+          "name": "OnePlus 12 5G",
+          "image": "https://www.91-img.com/pictures/154779-v4-oneplus-13-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://rukminim2.flixcart.com/image/720/864/xif0q/mobile/s/r/r/12-5g-op12-5g-oneplus-original-imagxgt7uwerszh8.jpeg?q=60&crop=false",
+          "price": 58999,
+          "specifications": [
+            "OnePlus 12 (Flowy Emerald, 12GB RAM, 256GB Storage) |  flagship smartphone that combines cutting-edge technology with sleek design | It features a 6.82-inch LTPO AMOLED display with a resolution of 3168x1440 pixels, offering vibrant visuals and a dynamic refresh rate ranging from 1 to 120 Hz for smooth scrolling and responsiveness. "
+          ],
+          "qty": 1
+        }
       ],
-      "user": "fidha",
-      "quantity": 1
-    },
-    {
-      "id": "1",
-      "name": "Apple iPhone 16 Pro Max",
-      "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/61giwQtR1qL._SL1500_.jpg",
-      "price": 105999,
-      "specifications": [
-        "iPhone 16 Pro Max 256 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium"
-      ],
-      "user": "najiya"
-    },
-    {
-      "id": "4",
-      "name": "OnePlus 12",
-      "image": "https://www.91-img.com/pictures/154779-v4-oneplus-13-mobile-phone-large-1.jpg?tr=q-80",
-      "detailsImage": "https://m.media-amazon.com/images/I/41+WyW0KOgL._SY300_SX300_.jpg",
-      "price": 58999,
-      "specifications": [
-        "OnePlus 12 (Flowy Emerald, 12GB RAM, 256GB Storage)"
-      ],
-      "user": "najiya",
-      "quantity": 1
+      "total": 164998,
+      "paymentMethod": "Credit Card",
+      "address": {
+        "street": "Kanikullangaracheenikal",
+        "city": "Malapuram",
+        "state": "Kerala",
+        "zip": "",
+        "country": "India",
+        "pin": "673314"
+      },
+      "date": "2024-12-22T15:56:04.259Z"
     }
   ]
 }

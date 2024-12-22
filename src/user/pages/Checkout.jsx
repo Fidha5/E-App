@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
-import { useUser } from "../../context/UserContext";
+// import { useUser } from "../../context/UserContext";
+import { addOrder } from "../../api/userApi";
 
 const Checkout = () => {
-  const { cart , clearCart } = useCart();
-  const { user } = useUser()
-  const getTotalPrice = () =>  cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const { cart , clearCart, totalPrice } = useCart();
+  // const { user } = useUser()
+  // const getTotalPrice = () =>  cart.reduce((total, item) => total + item.price * item.quantity, 0);
   const navigate = useNavigate();
   const [selectedPayment, setSelectedPayment] = useState("");
+  const userId = localStorage.getItem("userId");
 
   const [address, setAddress] = useState({ street: "", city: "", state: "", zip: "", country: ""})
+
+  const handleAddressChange = (e) => { 
+    const { name, value } = e.target; 
+    setAddress((prevAddress) => 
+        ({ ...prevAddress, [name]: value, }));
+    }
+
 
 
   const handleOrderConfirmation = async () => {
@@ -18,34 +27,47 @@ const Checkout = () => {
       alert("Please select a payment method to proceed.");
       return;
     }
-    if (!address.street || !address.city || !address.state || !address.zip || !address.country) { 
+    if (!address.street || !address.city || !address.state || !address.pin || !address.country) { 
         alert("Please fill out all address fields."); 
         return; 
     }
-    const orderDetails = {
-      user, // Get from UserContext
-      items: cart.map((item) => ({
-        id: item.id,
-        name: item.name,
-        quantity: item.quantity,
-        price: item.price,
-      })),
-      total: getTotalPrice(),
-      paymentMethod: selectedPayment,
-      address: address,
-      date: new Date().toISOString(),
-    };
+    if(!cart.length>0){
+      alert("Please add items to cart to checkout.")
+      return;
+    } 
+
+    // const orderDetails = {
+    //   user, // Get from UserContext
+    //   items: cart.map((item) => ({
+    //     id: item.id,
+    //     name: item.name,
+    //     quantity: item.quantity,
+    //     price: item.price,
+    //   })),
+    //   total: getTotalPrice(),
+    //   paymentMethod: selectedPayment,
+    //   address: address,
+    //   date: new Date().toISOString(),
+    // };
 
     try {
-      const response = await fetch("http://localhost:5001/order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderDetails),
-      });
-
-      if (response.ok) {
+      // const response = await fetch("http://localhost:5001/orders", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(orderDetails),
+      // });
+      const orderDetials = {
+        userId,
+        items: cart,
+        total: totalPrice,
+        paymentMethod: selectedPayment,
+        address: address,
+        date: new Date().toISOString(),
+      };
+      const response = await addOrder(orderDetials);
+      if (response) {
         alert(`Order placed successfully with ${selectedPayment}!`);
         clearCart(); // Clear the cart after placing the order
         navigate("/order");
@@ -58,11 +80,7 @@ const Checkout = () => {
     }
 
   };
-  const handleAddressChange = (e) => { 
-    const { name, value } = e.target; 
-    setAddress((prevAddress) => 
-        ({ ...prevAddress, [name]: value, }));
-    }
+
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
@@ -83,15 +101,15 @@ const Checkout = () => {
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-20 h-20 object-contain"
+                      className="w-16 h-16 object-cover"
                     />
                     <div>
                       <h4 className="font-semibold">{product.name}</h4>
-                      <p>₹{product.price} x {product.quantity}</p>
+                      <p>₹{product.price} x {product.qty}</p>
                     </div>
                   </div>
                   <div className="text-lg font-semibold">
-                    ₹{product.price * product.quantity}
+                    ₹{product.price * product.qty}
                   </div>
                 </div>
               ))}
@@ -100,25 +118,25 @@ const Checkout = () => {
 
           {/* Total Amount Section */}
           <div className="mt-4 text-lg font-semibold">
-            <p className="mb-2">Total Amount: ₹{getTotalPrice()}</p>
+            <p className="mb-2">Total Amount: ₹{totalPrice}</p>
           </div>
 
           {/* Address Input Section */} 
           <div className="mt-4"> 
-            <h3 className="text-lg font-semibold mb-2">Shipping Address:</h3> 
-            <div className="space-y-2"> 
-                <input type="text" name="street" placeholder="Street Address" value={address.street} 
-                    onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
-                <input type="text" name="city" placeholder="City" value={address.city} 
-                    onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
-                <input type="text" name="state" placeholder="State" value={address.state} 
-                    onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
-                <input type="text" name="zip" placeholder="ZIP Code" value={address.zip} 
-                    onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
-                <input type="text" name="country" placeholder="Country" value={address.country} 
-                    onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
-            </div> 
-            </div>
+              <h3 className="text-lg font-semibold mb-2">Shipping Address:</h3> 
+              <div className="space-y-2"> 
+                  <input type="text" name="street" placeholder="Street Address" value={address.street} 
+                      onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
+                  <input type="text" name="city" placeholder="City" value={address.city} 
+                      onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
+                  <input type="text" name="state" placeholder="State" value={address.state} 
+                      onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
+                  <input type="text" name="pin" placeholder="PIN Code" value={address.pin} 
+                      onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
+                  <input type="text" name="country" placeholder="Country" value={address.country} 
+                      onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
+              </div> 
+          </div>
 
           {/* Payment Methods Section */}
           <div className="mt-4">
@@ -154,7 +172,7 @@ const Checkout = () => {
                   onChange={(e) => setSelectedPayment(e.target.value)}
                   className="w-4 h-4"
                 />
-                <span>PayPal</span>
+                <span>Google Pay</span>
               </label>
 
               <label className="flex items-center space-x-2">
