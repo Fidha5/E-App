@@ -1,13 +1,11 @@
 import React from "react";
 import { useCart } from "../../context/CartContext";
-import {Link, useNavigate } from "react-router-dom"; 
-
+import { Link, useNavigate } from "react-router-dom"; 
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart, updateQuantity,totalPrice } = useCart();
   const navigate = useNavigate();
   const userId = localStorage.getItem("userId");
-
 
   const handleCheckout = () => {
     navigate("/checkout");

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useUser } from "./UserContext";
+import { UserContext, useUser } from "./UserContext";
 import { getUserbyId } from "../api/userApi";
 import { updateCart } from "../api/productApi";
 
@@ -7,8 +7,8 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [newuser,setNewuser] = useState();
-  const { user } = useUser();
+  const [newuser,setNewuser] = useState(null);
+  const { user } = useUser();  
   const [totalPrice, setTotalPrice] = useState(0);
   const userId = localStorage.getItem('userId')
 
@@ -26,6 +26,9 @@ export const CartProvider = ({ children }) => {
       if(userId){
         fetchUser(userId)
       }
+      else{
+        setCart([])
+      }
     }, [user])
 
     const totalCartPrice = async () =>{
@@ -39,8 +42,8 @@ export const CartProvider = ({ children }) => {
 
   const updateServerCart = async (cartData) => {
       try {
-        const updatedUser = {...user,cart:cartData}
-        await updateCart(user.id,updatedUser);
+        const updatedUser = {...newuser,cart:cartData}
+        await updateCart(userId,updatedUser);
         setCart(cartData);
       } catch (error) {
         console.log("Error updating cart:",error);        
@@ -57,6 +60,7 @@ export const CartProvider = ({ children }) => {
       }else{
           cartData = [...cart, {...product, qty}];
       }
+      console.log(cartData)
       updateServerCart(cartData);
   }
 

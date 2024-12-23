@@ -43,13 +43,13 @@ const Signup = () => {
   return (
     <div className="flex justify-center h-screen w-screen items-center">
       <div className="flex flex-col items-center w-[350px] h-auto rounded-lg p-4 border shadow-lg">
-        <h1 className="font-bold text-3xl mt-5 mb-5 font-serif">SignUp</h1>
+        <h1 className="font-bold text-3xl mt-5 mb-5 font-serif">SIGNUP</h1>
         {/* {message && <p className="mt-4 text-red-500">{message}</p>} */}
         <form className="p-6 w-80" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Enter name"
-            className="font-serif mt-5 border py-2 w-[235px] outline-none pl-2"
+            className="font-serif mt-5 py-2 w-[235px] outline-none border-black border-b-2 pl-2 rounded-2xl"
             value={form.name}
             onChange={handleChange}
             name="name"
@@ -58,7 +58,7 @@ const Signup = () => {
           <input
             type="email"
             placeholder="Email"
-            className="font-serif mt-5 border py-2 w-[235px] outline-none pl-2"
+            className="font-serif mt-5 rounded-2xl py-2 w-[235px] outline-none  border-black border-b-2 pl-2"
             value={form.email}
             onChange={handleChange}
             name="email"
@@ -67,7 +67,7 @@ const Signup = () => {
           <input
             type="password"
             placeholder="Password"
-            className="font-serif mt-5 border py-2 w-[235px] outline-none pl-2"
+            className="font-serif mt-5 rounded-2xl py-2 w-[235px] outline-none border-black border-b-2 pl-2"
             value={form.password}
             onChange={handleChange}
             name="password"
@@ -75,9 +75,9 @@ const Signup = () => {
           />
           <button
             type="submit"
-            className="bg-gradient-to-tr mt-5 py-2 text-white px-16 rounded-full font-semibold bg-blue-600 hover:bg-blue-700 ml-[50px]"
+            className="bg-gradient-to-tr mt-10 py-2 text-white px-5 rounded-full font-semibold bg-black hover:bg-slate-500 ml-[80px]"
           >
-            SignUp
+            SIGNUP
           </button>
         </form>
         <div className="flex font-serif text-sm text-gray-500">

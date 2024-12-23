@@ -110,39 +110,43 @@
       "role": "admin"
     },
     {
-      "id": "f7cf",
-      "name": "Fathima Fidha C P",
-      "email": "fidha@gmail.com",
-      "password": "123456",
+      "id": "2e59",
+      "name": "Najiya",
+      "email": "najiya@gmail.com",
+      "password": "456789",
       "role": "user",
       "cart": [
         {
-          "id": "3",
-          "name": "iQOO 13 5G",
-          "image": "https://www.91-img.com/pictures/154839-v8-iqoo-13-5g-mobile-phone-large-1.jpg?tr=q-80",
-          "detailsImage": "https://m.media-amazon.com/images/I/51jAxBrJCtL._SX569_.jpg",
-          "price": 39999,
+          "id": "1",
+          "name": "iPhone 16 Pro Max",
+          "image": "https://www.91-img.com/pictures/152869-v4-apple-iphone-16-pro-max-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://www.istore.co.za/media/catalog/product/cache/4ebc814e413626645aa42e369230a31f/i/p/iphone_16_pro_max_desert_titanium_pdp_image_position_1__gben_2.png",
+          "price": 105999,
           "specifications": [
-            "iQOO 13 5G (Legend, 12GB RAM, 256GB Storage) | Pro-Level Hasselblad Camera System: -Primary 50MP Sony's LYT-808 with OIS - 64 MP 3X Periscope Telephoto for studio-level portraits - 48 MP Ultra-wide 114° Fov"
+            "iPhone 16 Pro Max 256 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium"
           ],
           "qty": 1
         }
       ]
     },
     {
-      "id": "2e59",
-      "name": "Najiya",
-      "email": "najiya@gmail.com",
-      "password": "456789",
-      "role": "user"
-    },
-    {
-      "id": "087c",
-      "name": "Lamiya",
-      "email": "lamiya@gmail.com",
-      "password": "789456",
+      "id": "daa2",
+      "name": "Fathima Fidha C P",
+      "email": "fidha@gmail.com",
+      "password": "1234",
       "role": "user",
       "cart": [
+        {
+          "id": "7",
+          "name": "Samsung Galaxy S24 FE",
+          "image": "https://www.91-img.com/pictures/156667-v4-samsung-galaxy-s24-fe-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://m.media-amazon.com/images/I/717gvwQRw7L._SX569_.jpg",
+          "price": 79999,
+          "specifications": [
+            "Samsung Galaxy S24 FE 5G AI Smartphone (Blue, 8GB RAM, 256GB Storage) | Large 6.7 FHD+ Dynamic AMOLED 2X display for an immersive viewing experience"
+          ],
+          "qty": 1
+        },
         {
           "id": "2",
           "name": "Redmi Note 14 5G",
@@ -153,22 +157,18 @@
             "Redmi Note 14 5G (Titan Black, 8GB RAM 256GB Storage) | Global Debut MTK Dimensity 7025 Ultra | 2100 nits Segment Brightest 120Hz AMOLED | 50MP Sony LYT 600 OIS+EIS Triple Camera"
           ],
           "qty": 1
-        },
-        {
-          "id": "3",
-          "name": "iQOO 13 5G",
-          "image": "https://www.91-img.com/pictures/154839-v8-iqoo-13-5g-mobile-phone-large-1.jpg?tr=q-80",
-          "detailsImage": "https://m.media-amazon.com/images/I/51jAxBrJCtL._SX569_.jpg",
-          "price": 39999,
-          "specifications": [
-            "iQOO 13 5G (Legend, 12GB RAM, 256GB Storage) | Pro-Level Hasselblad Camera System: -Primary 50MP Sony's LYT-808 with OIS - 64 MP 3X Periscope Telephoto for studio-level portraits - 48 MP Ultra-wide 114° Fov"
-          ],
-          "qty": 1
         }
       ]
+    },
+    {
+      "id": "f2b3",
+      "name": "Sameeha",
+      "email": "sameeha@gmail.com",
+      "password": "456",
+      "role": "user"
     }
   ],
-  "order": [
+  "orders": [
     {
       "id": "5338",
       "userId": "f7cf",
@@ -235,6 +235,34 @@
         "pin": "673314"
       },
       "date": "2024-12-22T15:56:04.259Z"
+    },
+    {
+      "id": "81f2",
+      "userId": "daa2",
+      "userName": "Fathima Fidha C P",
+      "items": [
+        {
+          "id": "2",
+          "name": "Redmi Note 14 5G",
+          "image": "https://www.91-img.com/pictures/154781-v4-xiaomi-redmi-note-14-pro-plus-mobile-phone-large-1.jpg?tr=q-80",
+          "detailsImage": "https://m.media-amazon.com/images/I/71+QToFrHXL._SL1500_.jpg",
+          "price": 21999,
+          "specifications": [
+            "Redmi Note 14 5G (Titan Black, 8GB RAM 256GB Storage) | Global Debut MTK Dimensity 7025 Ultra | 2100 nits Segment Brightest 120Hz AMOLED | 50MP Sony LYT 600 OIS+EIS Triple Camera"
+          ],
+          "qty": 1
+        }
+      ],
+      "total": 21999,
+      "paymentMethod": "Credit Card",
+      "address": {
+        "street": "Kanikullangaracheenikal",
+        "city": "Malapuram",
+        "state": "Kerala",
+        "zip": "673314",
+        "country": "India"
+      },
+      "date": "2024-12-23T09:13:19.846Z"
     }
   ]
 }

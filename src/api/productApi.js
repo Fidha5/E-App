@@ -8,8 +8,8 @@ export const getAllProducts =  () => {
 
 };
 
-export const getProductById =  (id) => {
-    return  axios.get(`${PRODUCT_URL}/${id}`);
+export const getProductById =  (ProductId) => {
+    return  axios.get(`${PRODUCT_URL}/${ProductId}`);
 };
 
 export const updateCart = async (userId,cartData) => {

@@ -11,6 +11,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const [selectedPayment, setSelectedPayment] = useState("");
   const userId = localStorage.getItem("userId");
+  const userName = localStorage.getItem("userName");
 
   const [address, setAddress] = useState({ street: "", city: "", state: "", zip: "", country: ""})
 
@@ -27,7 +28,7 @@ const Checkout = () => {
       alert("Please select a payment method to proceed.");
       return;
     }
-    if (!address.street || !address.city || !address.state || !address.pin || !address.country) { 
+    if (!address.street || !address.city || !address.state || !address.zip || !address.country) { 
         alert("Please fill out all address fields."); 
         return; 
     }
@@ -36,30 +37,11 @@ const Checkout = () => {
       return;
     } 
 
-    // const orderDetails = {
-    //   user, // Get from UserContext
-    //   items: cart.map((item) => ({
-    //     id: item.id,
-    //     name: item.name,
-    //     quantity: item.quantity,
-    //     price: item.price,
-    //   })),
-    //   total: getTotalPrice(),
-    //   paymentMethod: selectedPayment,
-    //   address: address,
-    //   date: new Date().toISOString(),
-    // };
-
     try {
-      // const response = await fetch("http://localhost:5001/orders", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(orderDetails),
-      // });
+     
       const orderDetials = {
         userId,
+        userName,
         items: cart,
         total: totalPrice,
         paymentMethod: selectedPayment,
@@ -70,7 +52,7 @@ const Checkout = () => {
       if (response) {
         alert(`Order placed successfully with ${selectedPayment}!`);
         clearCart(); // Clear the cart after placing the order
-        navigate("/order");
+        navigate("/orders");
       } else {
         alert("Failed to place the order. Please try again.");
       }
@@ -131,7 +113,7 @@ const Checkout = () => {
                       onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
                   <input type="text" name="state" placeholder="State" value={address.state} 
                       onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
-                  <input type="text" name="pin" placeholder="PIN Code" value={address.pin} 
+                  <input type="text" name="zip" placeholder="ZIP Code" value={address.zip} 
                       onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 
                   <input type="text" name="country" placeholder="Country" value={address.country} 
                       onChange={handleAddressChange} className="w-full border p-2 rounded" required /> 

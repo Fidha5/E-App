@@ -1,20 +1,12 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext,useState } from "react";
 import { addUser, emailCheck, userCheck } from "../api/userApi";
 import { useNavigate } from "react-router-dom";
 
-const UserContext = createContext();
+export const UserContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export const UserProvider   = ({ children }) => {
   const [user,setUser] = useState();
   const navigate = useNavigate();
- 
-  // useEffect(() => {
-  //   const storedEmail = localStorage.getItem("user");
-  //   const storedUserId = localStorage.getItem("userId");
-  //   if (storedEmail) {
-  //     setUser({ email: storedEmail, id: storedUserId });
-  //   }
-  // }, []);
 
   const handleSignup = async(userData) => {
     try {
@@ -24,8 +16,8 @@ export const UserProvider = ({ children }) => {
         setUser(newUser);
         localStorage.setItem("user",newUser.email);
         localStorage.setItem("userId",newUser.id);
-        localStorage.setItem("userName", newUser.name);
-        navigate('/Login');
+        localStorage.setItem("userName",newUser.name);
+        navigate('/');
         return "";
       }
       else return "User already exist!"
@@ -65,7 +57,6 @@ export const UserProvider = ({ children }) => {
 
   const handleLogout = () => {
     setUser([]);
-
     localStorage.clear();
     navigate("/");
   };

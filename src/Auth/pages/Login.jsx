@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 
 const Login = () => {
   const { handleLogin } = useUser(); // Use handleLogin for logging in
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
 
@@ -18,6 +18,7 @@ const Login = () => {
     try {
       const response = await handleLogin(form.email,form.password);
       setMessage(response)
+      // navigate('/')
     } catch (error) {
       console.error("Login Error:", error);
       setMessage("An unexpected error occurred. Please try again.");
@@ -28,14 +29,14 @@ const Login = () => {
   return (
     <div className="flex justify-center h-screen w-screen items-center">
       <div className="flex flex-col items-center w-[350px] h-auto rounded-lg p-4 border shadow-lg">
-        <h1 className="font-bold text-3xl mt-5 font-serif">Login</h1>
+        <h1 className="font-bold text-3xl mt-5 font-serif">LOGIN</h1>
         <form className="p-6 w-80" onSubmit={handleSubmit}>
-          {message && <p className="text-red-500 ml-[45px]">{message}</p>}
+          {message && <p className="text-red-500 ml-[5px]">{message}</p>}
           <input
             type="email"
             placeholder="Email"
             name="email"
-            className="font-serif mt-5 border py-2 w-[235px] outline-none pl-2"
+            className="font-serif mt- py-2 w-[235px] outline-none border-black border-b-2 pl-2 rounded-2xl"
             value={form.email}
             onChange={handleChange}
             required
@@ -44,7 +45,7 @@ const Login = () => {
             type="password"
             placeholder="Password"
             name="password"
-            className="font-serif mt-5 border py-2 w-[235px] outline-none pl-2"
+            className="font-serif mt-5  py-2 w-[235px] outline-none border-black border-b-2 pl-2 rounded-2xl"
             value={form.password}
             onChange={handleChange}
             required
@@ -54,9 +55,9 @@ const Login = () => {
           </NavLink>
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 mt-5 text-white py-2 px-16 rounded-full font-semibold ml-[50px]"
+            className="bg-black hover:bg-slate-500 mt-5 text-white py-2 px-5 rounded-2xl font-semibold ml-[80px]"
           >
-            Login
+            LOGIN
           </button>
         </form>
         <div className="flex font-serif text-sm text-gray-500">

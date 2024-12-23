@@ -1,133 +1,80 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
-import { useUser } from '../../context/UserContext';
-import { getAllProducts } from '../../api/productApi';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+import { getAllProducts } from "../../api/productApi";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-    const { addToCart } = useCart();
-    const navigate = useNavigate();
-    const { user } = useUser();
-    const [error,setError]=useState("")
-  
-    useEffect(() => {
-      const fetchProducts = async () => {
-        try {
-          const response = await getAllProducts();
-          setProducts(response.data);
-        } catch (error) {
-          console.error('Error fetching product details:', error);
-          setError("Eroor fetching product details")
-        } 
+  const [error, setError] = useState("");
+  const { addToCart } = useCart(); 
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await getAllProducts();
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Failed to fetch products: ", error);
+        setError("Error fetching product details");
       }
-      fetchProducts();
-    },[]);   
-  
-    const formatPrice = (price) => {
-      return new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
-        maximumFractionDigits: 0,
-      }).format(Math.round(price));
     };
-  
-    const handleAddToCart = (product, e) => {
-      e.stopPropagation();
-      if (!user) {
-        alert('Please login or signup to add products to the cart.');
-        navigate('/Login');
-        return;
-      }
-      addToCart(product);
-   };
+
+    fetchProducts();
+  }, []);
+
   return (
-    <div className="container mx-auto p-4 w-screen">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">       
-         {products.slice(0, 10).map((product) => (
+    <div className="bg-gray-50 py-8">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-2xl font-bold mb-6 text-gray-800">Featured Products</h2>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {products.length > 0 ? (
+            products.map((product) => (
               <div
                 key={product.id}
-                className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transform transition duration-200 hover:scale-105 cursor-pointer"
-                onClick={() => navigate(`/product/${product.id}`)}
-              >
-                <img src={product.image} alt={product.name} className="w-full object-cover rounded-md" />
-                <h3 className="mt-2 text-lg font-semibold">{product.name}</h3>
-                <p className="text-gray-600">{formatPrice(product.price)}</p>
-                <button
-                  onClick={(e) => handleAddToCart(product, e)}
-                  className="mt-4 w-full py-2 bg-blue-500 text-white rounded-md hover:bg-gray-400 transition duration-200"
+                className="bg-white bg-opacity-90 rounded-lg shadow-lg p-4 relative transform transition duration-300 hover:shadow-xl hover:scale-105"
                 >
-                  Add to Cart
-                </button>
+                {product.image?(
+                <Link
+                  to={`/product-details/${product.id}`}
+                  className="block"
+                  aria-label={`View details of ${product.name}`}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="rounded-t-lg w-full h-48 object-contain"
+                  />
+                </Link>
+                ) : (
+                  <div className="w-full h-48 bg-gray-200 rounded-t-lg flex items-center justify-center">
+                    <span className="text-gray-600 text-sm">No Image</span>
+                  </div>
+                )}
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-gray-700">{product.name}</h3>
+                  <p className="text-gray-500">₹{product.price}</p>
+                  <button
+                    className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      addToCart(product); 
+                      alert(`Added ${product.name} to the cart!`)
+                    }}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-            ))}
-          </div>
+               
+            ))
+          ) : (
+            <p className="text-gray-500 text-lg text-center col-span-4">No products available</p>
+          )}
         </div>
-   
-  )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Home
-
-//   const [products, setProducts] = useState([]);
-//   const { addToCart } = useCart();
-//   const navigate = useNavigate();
-//   const { user } = useUser();
-//   const [error,setError]=useState("")
-
-//   useEffect(() => {
-//     const fetchProducts = async () => {
-//       try {
-//         const response = await getAllProducts();
-//         setProducts(response.data);
-//       } catch (error) {
-//         console.error('Error fetching product details:', error);
-//         setError("Eroor fetching product details")
-//       } 
-//     }
-//     fetchProducts();
-//   },[]);   
-
-//   const formatPrice = (price) => {
-//     return new Intl.NumberFormat('en-IN', {
-//       style: 'currency',
-//       currency: 'INR',
-//       maximumFractionDigits: 0,
-//     }).format(Math.round(price));
-//   };
-
-//   const handleAddToCart = (product, e) => {
-//     e.stopPropagation();
-//     if (!user) {
-//       alert('Please login or signup to add products to the cart.');
-//       navigate('/Login');
-//       return;
-//     }
-//     addToCart(product);
-//   };
-
-//   return (
-//     <div className="container mx-auto p-4 w-screen">
-//       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-//         {products.slice(0, 10).map((product) => (
-//           <div
-//             key={product.id}
-//             className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transform transition duration-200 hover:scale-105 cursor-pointer"
-//             onClick={() => navigate(`/product/${product.id}`)}
-//           >
-//             <img src={product.image} alt={product.name} className="w-full object-cover rounded-md" />
-//             <h3 className="mt-2 text-lg font-semibold">{product.name}</h3>
-//             <p className="text-gray-600">{formatPrice(product.price)}</p>
-//             <button
-//               onClick={(e) => handleAddToCart(product, e)}
-//               className="mt-4 w-full py-2 bg-blue-500 text-white rounded-md hover:bg-gray-400 transition duration-200"
-//             >
-//               Add to Cart
-//             </button>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
+export default Home;

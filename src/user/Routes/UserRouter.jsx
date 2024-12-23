@@ -27,6 +27,6 @@ import Checkout from "../pages/Checkout";
 const UserRouter =[
   {path:'/cart',element:<Cart/>},
   {path:'/checkout',element:<Checkout/>},
-  {path:'/order',element:<Order/>}
+  {path:'/orders',element:<Order/>}
 ]
 export default UserRouter;
