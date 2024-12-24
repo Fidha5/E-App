@@ -43,19 +43,19 @@ const ManageProducts = () => {
                     <table className="min-w-full table-auto">
                         <thead>
                             <tr className="bg-gray-100 border-b">
-                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">
+                                <th className="px-6 py-3 text-left text-m font-medium text-gray-600">
                                     Image
                                 </th>
-                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">
+                                <th className="px-6 py-3 text-left text-m font-medium text-gray-600">
                                     Product Name
                                 </th>
-                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">
+                                <th className="px-6 py-3 text-left text-m font-medium text-gray-600">
                                     Price
                                 </th>
-                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">
+                                <th className="px-6 py-3 text-left text-m font-medium text-gray-600">
                                     Description
                                 </th>
-                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">
+                                <th className="px-6 py-3 text-left text-m font-medium text-gray-600">
                                     Actions
                                 </th>
                             </tr>

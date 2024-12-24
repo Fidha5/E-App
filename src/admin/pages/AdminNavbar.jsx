@@ -111,6 +111,7 @@ const AdminNavbar = () => {
           >
             Manage Orders
           </Link>
+          {/* <img src='https://cdn-icons-png.flaticon.com/512/8212/8212701.png'/> */}
           <button
             className="px-4 py-2 rounded-md hover:bg-gray-500 transition duration-300 font-medium bg-blue-400"
             onClick={handleLogout}

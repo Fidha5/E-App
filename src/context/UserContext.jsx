@@ -32,6 +32,7 @@ export const UserProvider   = ({ children }) => {
     try {
       const [userValidation] = await userCheck(email,password);
       if(userValidation){
+        if(!userValidation.blocked){
           if (userValidation.role === "admin"){
             setUser(userValidation)
             localStorage.setItem("admin",userValidation.email)
@@ -46,6 +47,9 @@ export const UserProvider   = ({ children }) => {
             navigate('/');
             return "";
           }
+        }else{
+          return 'You are blocked! Contact admin'
+        }
       }else{
         return "Invalid email or password"
       }

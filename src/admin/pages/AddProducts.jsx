@@ -3,7 +3,7 @@ import { addProduct } from '../../api/adminApi';
 
 export const AddProducts = () => {
 
-    const [product, setProduct] = useState({name: '', price:'',specifications:'', image: '',detailsImage:''});
+    const [product, setProduct] = useState({name: '', price:'',specifications:([]), image: '',detailsImage:''});
     const [error, setError] = useState('');
   
     const handleSubmit = async (e) => {
@@ -11,7 +11,7 @@ export const AddProducts = () => {
         const res = await addProduct(product);
         if (res) {
           alert('Product added successfully');
-          setProduct({ name: '', price: '', specifications: '', image: '' , detailsImage:''}); // Reset the input fields
+          setProduct({ name: '', price: '', specifications: ([]), image: '' , detailsImage:''}); // Reset the input fields
         } else {
           setError('Failed to add product');
         }
@@ -59,12 +59,12 @@ export const AddProducts = () => {
           </div>
 
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-600">
+            <label htmlFor="specifications" className="block text-sm font-medium text-gray-600">
               Description
             </label>
             <textarea
-              id="description"
-              name="description"
+              id="specifications"
+              name="specifications"
               onChange={handleChange}
               className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               rows="4"
@@ -95,13 +95,13 @@ export const AddProducts = () => {
           </div>
 
           <div>
-          <label htmlFor="image" className="block text-sm font-medium text-gray-600">
+          <label htmlFor="detailsImage" className="block text-sm font-medium text-gray-600">
                 Image URL
             </label>
             <input
                 type="text"
-                id="image"
-                name="image"
+                id="detailsImage"
+                name="detailsImage"
                 onChange={handleChange}
                 className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter image URL"

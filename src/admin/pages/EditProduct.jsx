@@ -97,6 +97,29 @@ export const EditProduct = () => {
                 type="text"
                 id="image"
                 name="image"
+                value={product.image}
+                onChange={handleChange}
+                className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 "
+                placeholder="Enter image URL"
+                required
+            />
+            {product.image && (
+                <img
+                src={product.image}
+                alt="Product Preview"
+                className="mt-4 w-32  object-cover rounded-md"
+                />
+            )}
+          </div>
+
+          <div>
+          <label htmlFor="detailsImage" className="block text-sm font-medium text-gray-600">
+                Image URL
+            </label>
+            <input
+                type="text"
+                id="detailsImage"
+                name="detailsImage"
                 value={product.detailsImage}
                 onChange={handleChange}
                 className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 "

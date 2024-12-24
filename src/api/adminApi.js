@@ -26,3 +26,7 @@ export const editProduct = async (id,product) => {
 export const deleteProduct = async (id) => {
     return await axios.delete(`${PRODUCT_URL}/${id}`);
 }
+
+export const updateUser =async (id,block) => {
+    return await axios.patch(`${USER_URL}/${id}`,block)
+}

@@ -1,16 +1,52 @@
 
-import React, { useState } from 'react';
-import { NavLink} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate} from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { useCart } from '../context/CartContext';
+import { getAllProducts } from '../api/productApi';
 
 function Navbar() {
   const { handleLogout } = useUser();
   const { cart } = useCart();
-  // const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const useName = localStorage.getItem("userName");
+  const [showModal,setShowModal]=useState(false)
+  const [searchTerm,setSearchTerm]=useState("")
+  const [products,setProducts] =useState([])
+  const navigate = useNavigate()
 
+  useEffect(()=>{
+    const fetchProducts = async () =>{
+      if(searchTerm.trim()===''){
+        setProducts([]);
+        setShowModal(false);
+        return;
+      }
+      try{
+        const res = await getAllProducts();
+        const searchProducts = res.data.filter(product=>(
+          product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        ));
+        setProducts(searchProducts);
+        setShowModal(true);
+      }
+      catch(error){
+        console.error("Error while searching Products", error);
+      }
+    }
+
+    const delaySearch = setTimeout(() => {
+      fetchProducts();
+    }, 300);
+
+    return () => clearTimeout(delaySearch);
+  },[searchTerm])
+
+  const handleProductClick = (productId)=>{
+    setShowModal(false)
+    setSearchTerm("");
+    navigate(`/product-details/${productId}`)
+  }
   return (
     <nav className="flex w-full p-4 shadow-lg bg-blue-500 items-center justify-between top-0 left-0 z-50">
       {/* Logo */}
@@ -37,12 +73,19 @@ function Navbar() {
       </ul>
 
       {/* Search Bar */}
-      <div className=" md:block w-[300px] lg:w-[400px]">
-        <input
-          type="text"
-          placeholder="Search here..."
+      <div className=" relative md:block w-[300px] lg:w-[400px]">
+        <input onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} type="search" placeholder="Search here..."
           className="w-full p-2 outline-none border-gray-700 border-b-2 bg-transparent text-white placeholder-white"
         />
+        {showModal && products.length>0 && (
+          <div className='absolute top-6 left-0 mt-3 overflow-y-auto z-50 w-full max-h-60 bg-white border rounded-lg'>
+            <ul className='divide-y divide-gray-300'>
+              {products.map(product=>(
+                <li key={product.id} onClick={()=>handleProductClick(product.id)} className='cursor-pointer p-2'>{product.name}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       {/* User Actions */}
@@ -59,7 +102,7 @@ function Navbar() {
           </>
         ) : (
           <NavLink to="/Login">
-            <button className="bg-blue-300 text-black rounded-xl p-2 hover:bg-slate-300 font-medium">
+            <button className="bg-blue-300 text-black rounded-xl p-2 hover:bg-slate-300 font-medium ">
               Login
             </button>
           </NavLink>
@@ -114,7 +157,7 @@ function Navbar() {
               <NavLink
                 to="/Login"
                 onClick={() => setMenuOpen(false)}
-                className="text-white bg-blue-300 p-2 rounded hover:bg-blue-400"
+                className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400 text-center"
               >
                 Login
               </NavLink>
