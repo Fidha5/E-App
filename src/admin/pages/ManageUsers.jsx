@@ -30,10 +30,10 @@ const ManageUsers = () => {
                 <table className="min-w-full table-auto">
                     <thead>
                         <tr className="bg-gray-100 border-b">
-                            <th className="px-6 py-3 text-left text-m font-medium text-gray-600">Name</th>
-                            <th className="px-6 py-3 text-left text-m font-medium text-gray-600">Email</th>
-                            <th className="px-6 py-3 text-left text-m font-medium text-gray-600">Role</th>
-                            <th className="px-6 py-3 text-left text-m font-medium text-gray-600">Actions</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Name</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Email</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Role</th>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
