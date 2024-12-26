@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const USER_URL = "http://localhost:5000/users";
-const ORDER_URL = "http://localhost:5000/orders";
+const USER_URL = "https://server-4ky0.onrender.com/users";
+const ORDER_URL = "https://server-4ky0.onrender.com/orders";
 
 
 
