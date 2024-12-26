@@ -74,7 +74,7 @@ function Navbar() {
         {/* Username and Logout Button */}
         {useName && (
           <div className="flex items-center space-x-4">
-            <span className="font-medium text-white">Hello, {useName}</span>
+            <span className="font-medium text-white"> {useName}</span>
             <button
               className="bg-blue-300 text-black rounded-xl p-2 hover:bg-slate-300 font-medium"
               onClick={handleLogout}
