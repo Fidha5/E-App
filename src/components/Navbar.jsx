@@ -60,7 +60,7 @@ function Navbar() {
       </div>
 
       {/* Desktop Navigation */}
-      <ul className="hidden md:flex space-x-6 text-white text-lg font-medium">
+      <ul className="hidden md:flex space-x-6 text-white text-lg font-medium items-center">
         <NavLink to="/" className="hover:text-blue-300">
           Home
         </NavLink>
@@ -70,49 +70,27 @@ function Navbar() {
         <NavLink to="/orders" className="hover:text-blue-300">
           Orders
         </NavLink>
-      </ul>
 
-      {/* Search Bar */}
-      <div className="relative md:block w-[300px] lg:w-[400px] hidden">
-        <input
-          onChange={(e) => setSearchTerm(e.target.value)}
-          value={searchTerm}
-          type="search"
-          placeholder="Search here..."
-          className="w-full p-2 outline-none border-gray-700 border-b-2 bg-transparent text-white placeholder-white"
-        />
-        {showModal && products.length > 0 && (
-          <div className="absolute top-6 left-0 mt-3 overflow-y-auto z-50 w-full max-h-60 bg-white border rounded-lg">
-            <ul className="divide-y divide-gray-300">
-              {products.map((product) => (
-                <li
-                  key={product.id}
-                  onClick={() => handleProductClick(product.id)}
-                  className="cursor-pointer p-2 hover:bg-gray-200"
-                >
-                  {product.name}
-                </li>
-              ))}
-            </ul>
+        {/* Username and Logout Button */}
+        {useName && (
+          <div className="flex items-center space-x-4">
+            <span className="font-medium text-white">Hello, {useName}</span>
+            <button
+              className="bg-blue-300 text-black rounded-xl p-2 hover:bg-slate-300 font-medium"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </div>
         )}
-      </div>
-      {useName ? (
-              <button
-                onClick={handleLogout}
-                className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400"
-              >
-                Logout
-              </button>
-            ) : (
-              <NavLink
-                to="/Login"
-                onClick={() => setMenuOpen(false)}
-                className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400 text-center"
-              >
-                Login
-              </NavLink>
-            )}
+        {!useName && (
+          <NavLink to="/Login">
+            <button className="bg-blue-300 text-black rounded-xl p-2 hover:bg-slate-300 font-medium">
+              Login
+            </button>
+          </NavLink>
+        )}
+      </ul>
 
       {/* Hamburger Menu for Mobile */}
       <div className="md:hidden flex items-center relative">
