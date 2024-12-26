@@ -26,6 +26,7 @@ const ManageUsers = () => {
             {/* User Table */}
             <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
                 <h2 className="text-xl font-semibold mb-4">User List</h2>
+            <div className='overflow-auto'>
                 <table className="min-w-full table-auto">
                     <thead>
                         <tr className="bg-gray-100 border-b">
@@ -57,6 +58,7 @@ const ManageUsers = () => {
                             ))}
                         </tbody>
                 </table>
+            </div>
             </div>
         </div>
     );
