@@ -32,6 +32,7 @@ const Order = () => {
               <p><strong>Payment Method:</strong> {order.paymentMethod}</p>
               <p><strong>Date:</strong> {new Date(order.date).toLocaleString()}</p>
               <h3 className="font-bold mt-4">Items:</h3>
+          <div className="overflow-auto">
             <table className="table-auto w-full text-left ">
               <thead>
                 <tr className="">
@@ -67,6 +68,7 @@ const Order = () => {
                 )}
               </tbody>
             </table>
+          </div>
             </div>
           ))
       ) : (
