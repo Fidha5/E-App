@@ -48,7 +48,7 @@ const ManageUsers = () => {
                                 <button
                                     onClick={() => handleonClick(user.id, user.blocked)}
                                     className={`p-2 rounded-md mr-2 ${
-                                        user.blocked ? "bg-red-600 hover:bg-red-500" : "bg-blue-600 hover:bg-blue-500"
+                                        user.blocked ? "text-red-600" : "text-blue-600"
                                     } text-white`}
                                 >
                                     {user.blocked ? "Unblock" : "Block"}
