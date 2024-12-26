@@ -98,27 +98,6 @@ function Navbar() {
         )}
       </div>
 
-      {/* User Actions */}
-      <div className="md:flex items-center space-x-4">
-        {useName ? (
-          <>
-            <span className="font-medium text-white">{useName}</span>
-            <button
-              className="bg-blue-300 text-black rounded-xl p-1 hover:bg-slate-300 font-medium"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <NavLink to="/Login">
-            <button className="bg-blue-300 text-black rounded-xl p-2 hover:bg-slate-300 font-medium ">
-              Login
-            </button>
-          </NavLink>
-        )}
-      </div>
-
       {/* Hamburger Menu for Mobile */}
       <div className="md:hidden flex items-center relative">
         <button
@@ -127,7 +106,7 @@ function Navbar() {
         >
           ☰
         </button>
-      
+
         {menuOpen && (
           <div className="absolute top-full right-0 w-[250px] bg-blue-600 p-4 flex flex-col space-y-4 shadow-lg">
             <button
@@ -136,6 +115,11 @@ function Navbar() {
             >
               ✖
             </button>
+            {useName && (
+              <div className="text-white text-center font-medium">
+                Hello, {useName}
+              </div>
+            )}
             <NavLink
               to="/"
               onClick={() => setMenuOpen(false)}
