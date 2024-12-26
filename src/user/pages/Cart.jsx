@@ -65,13 +65,13 @@ const Cart = () => {
                     <div className="space-x-4">
                       <button
                         onClick={clearCart}
-                        className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600"
+                        className="bg-green-500 text-white px-2 py-2 rounded hover:bg-green-600"
                       >
                         Clear Cart
                       </button>
                       <button
                         onClick={handleCheckout}
-                        className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+                        className="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600"
                       >
                         Checkout
                       </button>
