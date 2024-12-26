@@ -97,6 +97,22 @@ function Navbar() {
           </div>
         )}
       </div>
+      {useName ? (
+              <button
+                onClick={handleLogout}
+                className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400"
+              >
+                Logout
+              </button>
+            ) : (
+              <NavLink
+                to="/Login"
+                onClick={() => setMenuOpen(false)}
+                className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400 text-center"
+              >
+                Login
+              </NavLink>
+            )}
 
       {/* Hamburger Menu for Mobile */}
       <div className="md:hidden flex items-center relative">
