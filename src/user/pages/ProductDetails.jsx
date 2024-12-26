@@ -48,7 +48,7 @@ const ProductDetails = () => {
                 className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 mt-6 rounded"
                 onClick={() =>{
                   addToCart(product);
-                  alert(`Added ${product.name} to the cart!`)
+                  // alert(`Added ${product.name} to the cart!`)
                 }}
               >
                 Add to Cart

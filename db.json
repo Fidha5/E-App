@@ -169,7 +169,7 @@
       "email": "hana@gmail.com",
       "password": "7894",
       "role": "user",
-      "blocked": false
+      "blocked": true
     }
   ],
   "orders": [

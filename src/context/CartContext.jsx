@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { UserContext, useUser } from "./UserContext";
+import { useUser } from "./UserContext";
 import { getUserbyId } from "../api/userApi";
 import { updateCart } from "../api/productApi";
 
@@ -53,6 +53,7 @@ export const CartProvider = ({ children }) => {
 
 
   const addToCart = async (product , qty = 1) => {
+    if(!userId) return alert("Please login to add items to the cart")
       const existingitem = cart.find(item => item.id === product.id);
       let cartData;
       if(existingitem){
@@ -61,6 +62,7 @@ export const CartProvider = ({ children }) => {
           cartData = [...cart, {...product, qty}];
       }
       console.log(cartData)
+      alert(`Added ${product.name} to the cart!`)
       updateServerCart(cartData);
   }
 
