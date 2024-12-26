@@ -146,7 +146,7 @@ function Navbar() {
             >
               Orders
             </NavLink>
-            <div className=" relative md:block w-[300px] lg:w-[400px]">
+            <div className=" relative">
         <input onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} type="search" placeholder="Search here..."
           className="w-full p-2 outline-none border-gray-700 border-b-2 bg-transparent text-white placeholder-white"
         />
