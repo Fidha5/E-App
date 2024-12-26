@@ -71,6 +71,31 @@ function Navbar() {
           Orders
         </NavLink>
 
+        <div className="relative">
+              <input
+                onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchTerm}
+                type="search"
+                placeholder="Search here..."
+                className="w-full p-2 outline-none border-gray-700 border-b-2 bg-transparent text-white placeholder-white"
+              />
+              {showModal && products.length > 0 && (
+                <div className="absolute top-6 left-0 mt-3 overflow-y-auto z-50 w-full max-h-60 bg-white border rounded-lg">
+                  <ul className="divide-y divide-gray-300">
+                    {products.map((product) => (
+                      <li
+                        key={product.id}
+                        onClick={() => handleProductClick(product.id)}
+                        className="cursor-pointer p-2 hover:bg-gray-200"
+                      >
+                        {product.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
         {/* Username and Logout Button */}
         {useName && (
           <div className="flex items-center space-x-4">
