@@ -86,7 +86,7 @@ function Navbar() {
                   <li
                     key={product.id}
                     onClick={() => handleProductClick(product.id)}
-                  >
+                  className="text-black hover:bg-gray-300">
                     {product.name}
                   </li>
                 ))}
