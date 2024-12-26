@@ -38,7 +38,7 @@ const Cart = () => {
                       <div className="flex items-center space-x-2">
                         <button
                           onClick={() => updateQuantity(product.id, -1)}
-                          className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                          className=" text-black px-2 py-1 rounded"
                           disabled={product.quantity <= 1}
                         >
                           -
@@ -46,7 +46,7 @@ const Cart = () => {
                         <span className="text-sm">{product.qty}</span>
                         <button
                           onClick={() => updateQuantity(product.id, 1)}
-                          className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600"
+                          className=" text-black px-2 py-1 rounded"
                         >
                           +
                         </button>
