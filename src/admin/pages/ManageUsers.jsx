@@ -49,7 +49,7 @@ const ManageUsers = () => {
                                     onClick={() => handleonClick(user.id, user.blocked)}
                                     className={`p-2 rounded-md mr-2 ${
                                         user.blocked ? "text-red-600" : "text-blue-600"
-                                    } text-white`}
+                                    }`}
                                 >
                                     {user.blocked ? "Unblock" : "Block"}
                                 </button>
