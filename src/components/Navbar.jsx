@@ -47,13 +47,6 @@ function Navbar() {
     setMenuOpen(false); // Close menu after product selection
   };
 
-  const handleOutsideClick = (e) => {
-    if (e.target.id === 'menu-overlay') {
-      setMenuOpen(false);
-    }
-  };
-
-
   return (
     <nav className="flex w-full p-4 shadow-lg bg-blue-500 items-center justify-between top-0 left-0 z-50">
       {/* Logo */}
@@ -134,10 +127,7 @@ function Navbar() {
         >
           ☰
         </button>
-        <div
-            id="menu-overlay"
-            className="fixed inset-0 z-40 bg-black bg-opacity-50 top-[71px]"
-            onClick={handleOutsideClick}>
+      
         {menuOpen && (
           <div className="absolute top-full right-0 w-[250px] bg-blue-600 p-4 flex flex-col space-y-4 shadow-lg">
             <button
