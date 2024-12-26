@@ -47,12 +47,6 @@ function Navbar() {
     setMenuOpen(false); // Close menu after product selection
   };
 
-  const handleOutsideClick = (e) => {
-    if (e.target.id === 'menu-overlay') {
-      setMenuOpen(false);
-    }
-  };
-
   return (
     <nav className="flex w-full p-4 shadow-lg bg-blue-500 items-center justify-between top-0 left-0 z-50">
       {/* Logo */}
@@ -104,96 +98,109 @@ function Navbar() {
         )}
       </div>
 
-      {/* Hamburger Menu and Login Button */}
-      <div className="md:hidden flex items-center space-x-4">
-        {/* Login Button */}
+      {/* User Actions */}
+      <div className="md:flex items-center space-x-4 hidden">
         {useName ? (
-          <button
-            onClick={handleLogout}
-            className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400"
-          >
-            Logout
-          </button>
+          <>
+            <span className="font-medium text-white">{useName}</span>
+            <button
+              className="bg-blue-300 text-black rounded-xl p-1 hover:bg-slate-300 font-medium"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </>
         ) : (
           <NavLink to="/Login">
-            <button className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400">
+            <button className="bg-blue-300 text-black rounded-xl p-2 hover:bg-slate-300 font-medium ">
               Login
             </button>
           </NavLink>
         )}
+      </div>
 
-        {/* Hamburger Menu */}
+      {/* Hamburger Menu for Mobile */}
+      <div className="md:hidden flex items-center relative">
         <button
           className="p-2 text-white text-2xl"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
         </button>
-      </div>
+        {menuOpen && (
+          <div className="absolute top-full right-0 w-[250px] bg-blue-600 p-4 flex flex-col space-y-4 shadow-lg">
+            <button
+              className="text-white text-xl self-end"
+              onClick={() => setMenuOpen(false)}
+            >
+              ✖
+            </button>
+            <NavLink
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className="text-white hover:text-blue-300"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/cart"
+              onClick={() => setMenuOpen(false)}
+              className="text-white hover:text-blue-300"
+            >
+              Cart <span className="rounded-full bg-blue-300 px-2">{cart.length || 0}</span>
+            </NavLink>
+            <NavLink
+              to="/orders"
+              onClick={() => setMenuOpen(false)}
+              className="text-white hover:text-blue-300"
+            >
+              Orders
+            </NavLink>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div
-        id="menu-overlay"
-        className="fixed inset-0 z-40 bg-black bg-opacity-50 top-[71px]"
-        onClick={handleOutsideClick}>
-            <div className="absolute top-full right-0 w-[250px] bg-blue-600 p-4 flex flex-col space-y-4 shadow-lg">
+            {/* Search in Hamburger Menu */}
+            <div className="relative">
+              <input
+                onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchTerm}
+                type="search"
+                placeholder="Search here..."
+                className="w-full p-2 outline-none border-gray-700 border-b-2 bg-transparent text-white placeholder-white"
+              />
+              {showModal && products.length > 0 && (
+                <div className="absolute top-6 left-0 mt-3 overflow-y-auto z-50 w-full max-h-60 bg-white border rounded-lg">
+                  <ul className="divide-y divide-gray-300">
+                    {products.map((product) => (
+                      <li
+                        key={product.id}
+                        onClick={() => handleProductClick(product.id)}
+                        className="cursor-pointer p-2 hover:bg-gray-200"
+                      >
+                        {product.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+            {useName ? (
               <button
-                className="text-white text-xl self-end"
-                onClick={() => setMenuOpen(false)}
+                onClick={handleLogout}
+                className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400"
               >
-                ✖
+                Logout
               </button>
+            ) : (
               <NavLink
-                to="/"
+                to="/Login"
                 onClick={() => setMenuOpen(false)}
-                className="text-white hover:text-blue-300"
+                className="text-white bg-blue-300 p-2 rounded hover:bg-slate-400 text-center"
               >
-                Home
+                Login
               </NavLink>
-              <NavLink
-                to="/cart"
-                onClick={() => setMenuOpen(false)}
-                className="text-white hover:text-blue-300"
-              >
-                Cart <span className="rounded-full bg-blue-300 px-2">{cart.length || 0}</span>
-              </NavLink>
-              <NavLink
-                to="/orders"
-                onClick={() => setMenuOpen(false)}
-                className="text-white hover:text-blue-300"
-              >
-                Orders
-              </NavLink>
-
-              {/* Search in Mobile Menu */}
-              <div className="relative">
-                <input
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  value={searchTerm}
-                  type="search"
-                  placeholder="Search here..."
-                  className="w-full p-2 outline-none border-gray-700 border-b-2 bg-transparent text-white placeholder-white"
-                />
-                {showModal && products.length > 0 && (
-                  <div className="absolute top-6 left-0 mt-3 overflow-y-auto z-50 w-full max-h-60 bg-white border rounded-lg">
-                    <ul className="divide-y divide-gray-300">
-                      {products.map((product) => (
-                        <li
-                          key={product.id}
-                          onClick={() => handleProductClick(product.id)}
-                          className="cursor-pointer p-2 hover:bg-gray-200"
-                        >
-                          {product.name}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
             )}
           </div>
-        </div>
+        )}
       </div>
-      )}
     </nav>
   );
 }
